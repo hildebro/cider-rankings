@@ -1,11 +1,19 @@
-from jinja2 import Environment, PackageLoader, select_autoescape
+from cider_ranking.db import session_wrapper
+from cider_ranking.models import Cider
+from .db import base, engine
 
 
-def list_ranking():
-    env = Environment(
-        loader=PackageLoader('cider_ranking', 'templates'),
-        autoescape=select_autoescape(['html'])
-    )
+def init_db():
+    base.metadata.create_all(engine)
 
-    template = env.get_template('template.html')
-    return template.render()
+
+@session_wrapper
+def add_ranking(session, name, sweetness_level, natural_level, score):
+    cider = Cider(name, sweetness_level, natural_level, score)
+    session.add(cider)
+    session.commit()
+
+
+@session_wrapper
+def list_ranking(session):
+    return session.query(Cider).filter(Cider.name == 'Sommersby').all()

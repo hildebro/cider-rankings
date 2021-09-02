@@ -1,1 +1,1 @@
-from cider_ranking.core import list_ranking
+from cider_ranking.core import add_ranking, list_ranking, init_db
