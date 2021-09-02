@@ -4,7 +4,7 @@ with open("README.md", "r") as fh:
     long_description = fh.read()
 
 setuptools.setup(
-    name="cider_ranker",
+    name="cider-rankings",
     version="0.0.1",
     author="Alexander Hildebrandt",
     author_email="github@hillburn.net",
