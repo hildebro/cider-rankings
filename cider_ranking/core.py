@@ -15,5 +15,11 @@ def add_ranking(session, name, sweetness_level, natural_level, score):
 
 
 @session_wrapper
-def list_ranking(session):
-    return session.query(Cider).filter(Cider.name == 'Sommersby').all()
+def has_ranking(session, name):
+    result = session.query(Cider).filter(Cider.name == name).all()
+    return len(result) > 0
+
+
+@session_wrapper
+def get_all(session):
+    return session.query(Cider).all()
