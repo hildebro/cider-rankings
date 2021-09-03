@@ -10,6 +10,12 @@ def run():
 
     if not cider_ranking.has_ranking('Sommersby'):
         cider_ranking.add_ranking('Sommersby', 5, 1, 4)
+    if not cider_ranking.has_ranking('Rekorderlig'):
+        cider_ranking.add_ranking('Rekorderlig', 3, 2, 4)
+    if not cider_ranking.has_ranking('Räuber'):
+        cider_ranking.add_ranking('Räuber', 1, 5, 5)
+    if not cider_ranking.has_ranking('Lies!'):
+        cider_ranking.add_ranking('Lies!', 4, 2, 1)
 
     result = cider_ranking.get_all()
     for cider in result:

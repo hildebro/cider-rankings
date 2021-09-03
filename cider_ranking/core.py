@@ -1,3 +1,5 @@
+from sqlalchemy import desc
+
 from cider_ranking.db import session_wrapper
 from cider_ranking.models import Cider
 from .db import base, engine
@@ -29,4 +31,7 @@ def has_ranking(session, name):
 
 @session_wrapper
 def get_all(session):
-    return session.query(Cider).all()
+    return session.query(Cider) \
+        .order_by(desc(Cider.score)) \
+        .order_by(Cider.name) \
+        .all()
