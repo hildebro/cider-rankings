@@ -9,9 +9,16 @@ def init_db():
 
 @session_wrapper
 def add_ranking(session, name, sweetness_level, natural_level, score):
+    if invalid_value(sweetness_level) or invalid_value(natural_level) or invalid_value(score):
+        raise ValueError('Cider properties must be between 0 and 5')
+
     cider = Cider(name, sweetness_level, natural_level, score)
     session.add(cider)
     session.commit()
+
+
+def invalid_value(value):
+    return 0 > value or value > 5
 
 
 @session_wrapper

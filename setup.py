@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="cider-rankings",
-    version="0.0.1",
+    version="0.0.6",
     author="Alexander Hildebrandt",
     author_email="github@hillburn.net",
     description="Rank ciders and look at the data",

@@ -7,10 +7,10 @@ class Cider(base):
     __tablename__ = 'cider'
 
     id = Column(Integer, primary_key=True)
-    name = Column(String, unique=True)
-    sweetness_level = Column(Integer)
-    natural_level = Column(Integer)
-    score = Column(Integer)
+    name = Column(String, unique=True, nullable=False)
+    sweetness_level = Column(Integer, nullable=False)
+    natural_level = Column(Integer, nullable=False)
+    score = Column(Integer, nullable=False)
 
     def __init__(self, name, sweetness_level, natural_level, score):
         self.name = name
